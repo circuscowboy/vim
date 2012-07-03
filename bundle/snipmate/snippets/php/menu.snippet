@@ -1,0 +1,29 @@
+function _menu_subtree_data($item, $tree) {
+	foreach ($tree as $cid => $data) {
+  	if ($item['mlid'] == $data['link']['mlid']) {
+    	return array($cid => $data);
+    }
+    if ($data['below']) {
+    	$return = _menu_subtree_data($item, $data['below']);
+    	if ($return) {
+    		return $return;
+    	}
+  	}
+	}
+  return FALSE;
+}
+
+  // $mlid is the mlid of the item you wish to have at the root of your menu tree,
+  // even if you only want its direct children.
+
+	$mlid ='${1:}'; 
+
+	$menu_item = menu_link_load($mlid);
+  $tree = _menu_subtree_data($menu_item, menu_tree_all_data($menu_item['menu_name']));
+
+  // Print out the tree including the parent item
+  // print menu_tree_output($tree);
+
+  // Print out the tree, not including the parent item.
+  $tree = array_shift($tree);
+  print menu_tree_output($tree['below']);

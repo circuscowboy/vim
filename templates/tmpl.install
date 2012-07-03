@@ -1,0 +1,56 @@
+<?php
+/**
+ * @file
+ * Installation file for  Module
+ */
+ 
+/**
+ * Implementation of hook_install()
+ */
+function foo_install() {
+ 
+}
+
+/**
+ * Implements hook_schema()
+ */
+function foo_schema() {
+  $schema['my_spiffy_table'] = array(
+  'description' => '',
+  'fields' => array(
+    'uid' => array(
+    'description' => '',
+    'type' => 'int',
+    'not null' => TRUE,
+  ),
+  'imis' => array(
+    'description' => '',
+    'type' => 'int',
+    'not null' => TRUE,
+    ),
+  'role' => array(
+    'description' => '',
+    'type' => 'varchar',
+    'length' => 255,
+    'not null' => FALSE,
+    'default' => '',
+    ),
+   'fullname' => array(
+    'description' => '',
+    'type' => 'varchar',
+    'length' => 255,
+    'not null' => FALSE,
+    'default' => '',
+    ),
+   ),
+   'primary key' => array('uid'),
+ );
+  return $schema;
+}
+
+/**
+ * Implementation of hook_uninstall()
+ */
+function foo_uninstall() {
+ 
+}

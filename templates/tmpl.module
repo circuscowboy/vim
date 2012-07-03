@@ -1,0 +1,40 @@
+<?php
+/**
+ * @file
+ * Allows users to do something.
+ */
+
+/**
+ * Implements hook_help().
+ */
+function foo_help($path, $arg) {
+  switch ($path) {
+    case 'admin/foo#venue':
+      $output = '<h3>' . t('About') . '</h3>';
+      $output .= '<p>' . t('The foo module is used for something.') . '</p>';
+      return $output;
+  }
+}
+
+/**
+ * Implements hook_theme().
+ */
+function foo_theme() {
+  return array();
+}
+
+/**
+ * Implements hook_permission().
+ */
+function foo_permission() {
+  return array();
+}
+
+/**
+ * Implements hook_menu().
+ */
+function foo_menu() {
+  $items = array();
+
+  return $items;
+}
